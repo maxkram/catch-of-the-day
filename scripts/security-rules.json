@@ -1,0 +1,14 @@
+// firebase коды 
+{
+    "rules": {
+        // не удалять
+        ".write": "!data.exists()",
+        ".read": true,
+        "$room" : {
+          // не трогать
+          ".write" : "newData.child('owner').val() === auth.uid",
+          ".read" : true
+        }
+    }
+}
+

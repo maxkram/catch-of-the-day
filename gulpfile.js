@@ -65,11 +65,10 @@ function handleErrors() {
 }
 
 function buildScript(file, watch) {
+  
   var props = {
     entries: ['./scripts/' + file],
     debug : true,
-    cache: {},
-    packageCache: {},
     transform:  [babelify.configure({stage : 0 })]
   };
 
@@ -101,7 +100,7 @@ function buildScript(file, watch) {
 }
 
 gulp.task('scripts', function() {
-  return buildScript('main.js', false); // this will run once because we set watch to false
+  return buildScript('main.js', false); // this will once run once because we set watch to false
 });
 
 // run 'scripts' task first, then watch for future changes
